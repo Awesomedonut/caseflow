@@ -25,6 +25,9 @@ real = [
     "langchain-openai>=0.3.0",
 ]
 
+[tool.setuptools.packages.find]
+include = ["models*", "agents*", "tools*", "graph*", "mock*", "api*"]
+
 [build-system]
-requires = ["setuptools>=75.0"]
-build-backend = "setuptools.backends._legacy:_Backend"
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta"

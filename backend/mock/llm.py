@@ -10,11 +10,11 @@ class MockLLM:
 
     async def generate(self, prompt: str, system: str = "") -> str:
         system_lower = system.lower()
-        if "generate search queries" in system_lower:
+        if "search queries" in system_lower:
             return self._mock_search_queries(prompt)
-        elif "write a research memo" in system_lower or "synthesize" in system_lower:
+        elif "research memo" in system_lower or "memo writer" in system_lower:
             return self._mock_synthesis(prompt)
-        elif "extract citations" in system_lower:
+        elif "extract" in system_lower and "citation" in system_lower:
             return self._mock_citation_extraction(prompt)
         return json.dumps({"response": "Mock LLM response"})
 
