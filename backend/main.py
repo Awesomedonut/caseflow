@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from config import settings
+from api.routes import router
 
 app = FastAPI(
     title="CaseFlow",
@@ -17,11 +17,4 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-@app.get("/api/health")
-async def health():
-    return {
-        "status": "ok",
-        "mock_mode": settings.mock_mode,
-        "version": "0.1.0",
-    }
+app.include_router(router)
