@@ -46,7 +46,7 @@ export function ResearchInput({
         disabled={isLoading}
       />
       <div className="flex flex-col sm:flex-row gap-3">
-        <Select value={jurisdiction} onValueChange={setJurisdiction}>
+        <Select value={jurisdiction} onValueChange={(v) => setJurisdiction(v ?? "")}>
           <SelectTrigger className="w-full sm:w-[160px]">
             <SelectValue placeholder="Jurisdiction" />
           </SelectTrigger>
@@ -59,7 +59,7 @@ export function ResearchInput({
             <SelectItem value="Federal">Federal</SelectItem>
           </SelectContent>
         </Select>
-        <Select value={practiceArea} onValueChange={setPracticeArea}>
+        <Select value={practiceArea} onValueChange={(v) => setPracticeArea(v ?? "")}>
           <SelectTrigger className="w-full sm:w-[180px]">
             <SelectValue placeholder="Practice area" />
           </SelectTrigger>
